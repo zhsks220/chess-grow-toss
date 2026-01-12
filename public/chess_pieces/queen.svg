@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Dress (Purple) -->
+        <path d="M20 85H80L65 45H35L20 85Z" fill="#9b59b6" />
+        <path d="M35 45L50 85L65 45" fill="#8e44ad" />
+        
+        <!-- Pink Head -->
+        <circle cx="50" cy="35" r="18" fill="#ff9ff3" />
+
+        <!-- Tiara -->
+        <path d="M35 25L32 20L40 22L42 15L50 22L58 15L60 22L68 20L65 25H35Z" fill="#f1c40f" />
+    </g>
+    <!-- Face -->
+    <circle cx="44" cy="35" r="2.5" fill="black" />
+    <circle cx="56" cy="35" r="2.5" fill="black" />
+    <path d="M48 39 Q50 41 52 39" stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <circle cx="42" cy="40" r="2" fill="#ffcccc" opacity="0.6" />
+    <circle cx="58" cy="40" r="2" fill="#ffcccc" opacity="0.6" />
+</svg>

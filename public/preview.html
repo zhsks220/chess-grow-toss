@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Icons Preview</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #666;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card img,
+        .card svg {
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Game Assets Preview</h1>
+
+    <h2>Chess Pieces (Files)</h2>
+    <div class="grid">
+        <div class="card"><img src="./chess_pieces/pawn.svg" alt="Pawn">
+            <div class="label">Pawn</div>
+        </div>
+        <div class="card"><img src="./chess_pieces/knight.svg" alt="Knight">
+            <div class="label">Knight</div>
+        </div>
+        <div class="card"><img src="./chess_pieces/bishop.svg" alt="Bishop">
+            <div class="label">Bishop</div>
+        </div>
+        <div class="card"><img src="./chess_pieces/rook.svg" alt="Rook">
+            <div class="label">Rook</div>
+        </div>
+        <div class="card"><img src="./chess_pieces/queen.svg" alt="Queen">
+            <div class="label">Queen</div>
+        </div>
+        <div class="card"><img src="./chess_pieces/king.svg" alt="King">
+            <div class="label">King</div>
+        </div>
+        <div class="card"><img src="./chess_pieces/imperial_king.svg" alt="Imperial King">
+            <div class="label">Imperial King</div>
+        </div>
+    </div>
+
+    <h2>Boss Stones (Embedded)</h2>
+    <div class="grid">
+        <!-- Black Stone -->
+        <div class="card">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="85" rx="35" ry="10" fill="black" opacity="0.2" />
+                <path d="M50 15C30 15 15 30 15 50C15 70 30 85 50 85C70 85 85 70 85 50C85 30 70 15 50 15Z" fill="#4a4a4a"
+                    stroke="#2d3436" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <ellipse cx="35" cy="35" rx="10" ry="5" fill="white" opacity="0.1" transform="rotate(-45 35 35)" />
+                <path d="M35 45L45 50" stroke="#2d3436" stroke-width="3" stroke-linecap="round" />
+                <path d="M65 45L55 50" stroke="#2d3436" stroke-width="3" stroke-linecap="round" />
+                <circle cx="40" cy="55" r="4" fill="#fab1a0" />
+                <circle cx="40" cy="55" r="2" fill="white" />
+                <circle cx="60" cy="55" r="4" fill="#fab1a0" />
+                <circle cx="60" cy="55" r="2" fill="white" />
+                <path d="M45 65Q50 62 55 65" stroke="#2d3436" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <div class="label">Black Stone</div>
+        </div>
+
+        <!-- White Stone -->
+        <div class="card">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="85" rx="35" ry="10" fill="black" opacity="0.2" />
+                <path d="M50 15C30 15 15 30 15 50C15 70 30 85 50 85C70 85 85 70 85 50C85 30 70 15 50 15Z" fill="#ffffff"
+                    stroke="#2d3436" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M20 50Q20 75 50 80" stroke="#dcdde1" stroke-width="4" fill="none" opacity="0.5" />
+                <circle cx="38" cy="50" r="4" fill="#2d3436" />
+                <circle cx="62" cy="50" r="4" fill="#2d3436" />
+                <circle cx="32" cy="58" r="3" fill="#ff7675" opacity="0.6" />
+                <circle cx="68" cy="58" r="3" fill="#ff7675" opacity="0.6" />
+                <path d="M45 58Q50 62 55 58" stroke="#2d3436" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <div class="label">White Stone</div>
+        </div>
+
+        <!-- Boss Red (Using values from code: color="#ff6b6b" accent="#c0392b" aura="#ff7675") -->
+        <div class="card">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" fill="#ff7675" opacity="0.3" filter="blur(4px)" />
+                <ellipse cx="50" cy="90" rx="40" ry="8" fill="black" opacity="0.3" />
+                <path d="M20 30L10 10L35 25" fill="#c0392b" stroke="#2d3436" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M80 30L90 10L65 25" fill="#c0392b" stroke="#2d3436" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M50 10C25 10 10 30 10 55C10 80 30 90 50 90C70 90 90 80 90 55C90 30 75 10 50 10Z" fill="#ff6b6b"
+                    stroke="#2d3436" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M30 40L45 48" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
+                <path d="M70 40L55 48" stroke="#2d3436" stroke-width="4" stroke-linecap="round" />
+                <path d="M35 55L45 55" stroke="white" stroke-width="4" stroke-linecap="round" />
+                <circle cx="40" cy="55" r="2" fill="red" />
+                <path d="M55 55L65 55" stroke="white" stroke-width="4" stroke-linecap="round" />
+                <circle cx="60" cy="55" r="2" fill="red" />
+                <path d="M35 70L40 75L45 70L50 75L55 70L60 75L65 70" stroke="#2d3436" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round" fill="white" />
+                <path d="M25 35L30 45" stroke="#2d3436" stroke-width="2" opacity="0.5" />
+            </svg>
+            <div class="label">Boss Red</div>
+        </div>
+
+        <!-- Boss Rainbow (Special SVG) -->
+        <div class="card">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="rainbowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff7675" />
+                        <stop offset="20%" stop-color="#fdcb6e" />
+                        <stop offset="40%" stop-color="#55efc4" />
+                        <stop offset="60%" stop-color="#74b9ff" />
+                        <stop offset="80%" stop-color="#a29bfe" />
+                        <stop offset="100%" stop-color="#fd79a8" />
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="48" fill="url(#rainbowGrad)" opacity="0.4" filter="blur(5px)" />
+                <path d="M20 25L10 5L35 20 M80 25L90 5L65 20 M50 20L50 5" fill="#2d3436" stroke="#2d3436"
+                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M50 10C25 10 10 30 10 55C10 80 30 90 50 90C70 90 90 80 90 55C90 30 75 10 50 10Z" fill="#2d3436"
+                    stroke="url(#rainbowGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M30 45L45 52" stroke="white" stroke-width="4" stroke-linecap="round" />
+                <path d="M70 45L55 52" stroke="white" stroke-width="4" stroke-linecap="round" />
+                <circle cx="40" cy="60" r="3" fill="red" />
+                <circle cx="60" cy="60" r="3" fill="red" />
+                <path d="M35 75Q50 85 65 75" stroke="white" stroke-width="3" fill="none" />
+                <path d="M35 75L37 70M65 75L63 70" stroke="white" stroke-width="2" />
+            </svg>
+            <div class="label">Boss Rainbow</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

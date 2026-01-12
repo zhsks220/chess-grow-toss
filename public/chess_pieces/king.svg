@@ -1,0 +1,22 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Cape (Red) -->
+        <path d="M25 85H75L65 50H35L25 85Z" fill="#e74c3c" />
+        <path d="M50 85V50" stroke-opacity="0.5" />
+        
+            <!-- Fur Collar -->
+        <path d="M30 50Q50 60 70 50Q75 55 70 60Q50 70 30 60Q25 55 30 50Z" fill="white" />
+
+        <!-- Pink Head -->
+        <circle cx="50" cy="35" r="18" fill="#ff9ff3" />
+        
+        <!-- Crown -->
+        <path d="M35 25V15L42 20L50 10L58 20L65 15V25H35Z" fill="#f1c40f" />
+    </g>
+    <!-- Face -->
+    <circle cx="44" cy="35" r="2.5" fill="black" />
+    <circle cx="56" cy="35" r="2.5" fill="black" />
+    <path d="M48 39 Q50 41 52 39" stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <circle cx="42" cy="40" r="2" fill="#ffcccc" opacity="0.6" />
+    <circle cx="58" cy="40" r="2" fill="#ffcccc" opacity="0.6" />
+</svg>

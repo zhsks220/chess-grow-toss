@@ -1,0 +1,15 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Black Base -->
+        <path d="M25 85H75L70 75H30L25 85Z" fill="black" />
+        
+        <!-- Pink Body - Keyhole Shape -->
+        <path d="M35 75C35 75 35 55 35 50C35 40 30 35 30 25C30 10 40 5 50 5C60 5 70 10 70 25C70 35 65 40 65 50C65 55 65 75 65 75H35Z" fill="#ff9ff3" />
+    </g>
+    <!-- Face -->
+    <circle cx="44" cy="30" r="2.5" fill="black" />
+    <circle cx="56" cy="30" r="2.5" fill="black" />
+    <path d="M48 34 Q50 36 52 34" stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <circle cx="42" cy="35" r="2" fill="#ffcccc" opacity="0.6" />
+    <circle cx="58" cy="35" r="2" fill="#ffcccc" opacity="0.6" />
+</svg>

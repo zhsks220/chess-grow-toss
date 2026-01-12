@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Base -->
+        <path d="M25 85H75L70 80H30L25 85Z" fill="black" />
+        
+        <!-- Pink Body -->
+        <path d="M35 80V50C35 50 30 45 30 35C30 25 35 20 50 20C65 20 70 25 70 35C70 45 65 50 65 50V80H35Z" fill="#ff9ff3" />
+
+        <!-- Mitre (Hat) -->
+        <path d="M35 30C35 15 42 5 50 5C58 5 65 15 65 30H35Z" fill="white" />
+        <path d="M50 5V30" />
+        <path d="M42 18H58" />
+        
+        <!-- Staff -->
+        <path d="M15 30C15 25 20 20 25 20C30 20 30 25 30 30C30 35 25 40 25 40V90" stroke-width="3" fill="#8e44ad" />
+        <circle cx="25" cy="20" r="4" fill="#54a0ff" />
+    </g>
+    <!-- Face -->
+    <circle cx="44" cy="40" r="2.5" fill="black" />
+    <circle cx="56" cy="40" r="2.5" fill="black" />
+    <path d="M48 44 Q50 46 52 44" stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <circle cx="42" cy="45" r="2" fill="#ffcccc" opacity="0.6" />
+    <circle cx="58" cy="45" r="2" fill="#ffcccc" opacity="0.6" />
+</svg>

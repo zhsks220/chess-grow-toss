@@ -1,0 +1,29 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Horse Costume Body (Brown) -->
+        <path d="M20 70H80V80Q80 85 75 85H25Q20 85 20 80V70Z" fill="#cd84f1" />
+            <!-- Legs -->
+            <path d="M30 85V90" stroke-width="4" />
+            <path d="M40 85V90" stroke-width="4" />
+            <path d="M60 85V90" stroke-width="4" />
+            <path d="M70 85V90" stroke-width="4" />
+
+        <!-- Horse Body (Brown) -->
+        <path d="M25 70C25 70 20 50 30 50H70C80 50 80 60 85 65C85 70 80 70 80 70" fill="#cc8e69" />
+        <path d="M25 70H75" fill="#cc8e69" />
+
+            <!-- Pink Head -->
+            <circle cx="50" cy="35" r="18" fill="#ff9ff3" />
+            
+            <!-- Horse Helmet (Brown) -->
+            <path d="M30 35C30 20 40 5 50 5C60 5 70 20 70 35H30Z" fill="#cc8e69" />
+            <path d="M50 5L50 15" stroke-opacity="0.5" />
+            <path d="M40 10L60 10" stroke-opacity="0.5" />
+    </g>
+    <!-- Face -->
+    <circle cx="44" cy="35" r="2.5" fill="black" />
+    <circle cx="56" cy="35" r="2.5" fill="black" />
+    <path d="M48 39 Q50 41 52 39" stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <circle cx="42" cy="40" r="2" fill="#ffcccc" opacity="0.6" />
+    <circle cx="58" cy="40" r="2" fill="#ffcccc" opacity="0.6" />
+</svg>
