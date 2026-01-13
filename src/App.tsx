@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { create } from 'zustand';
 import { setupAds, showInterstitial, showRewarded } from './services/adService';
 import { initializePurchases, purchaseProductAsync as purchaseProduct, restorePurchases, PRODUCT_IDS } from './services/purchaseService';
-import { closeView } from '@apps-in-toss/web-framework';
+import { closeView, submitGameCenterLeaderBoardScore, openGameCenterLeaderboard } from '@apps-in-toss/web-framework';
 
 // ============ Long Press Hook ============
 const useLongPress = (
@@ -199,6 +199,18 @@ const RANK_MULTIPLIERS: Record<ChessPieceRank, number> = {
   queen: 8,
   king: 12,
   imperial: 20,
+};
+
+// 리더보드 점수 계산 함수
+const calculateLeaderboardScore = (
+  goldPerClick: number,
+  attackPower: number,
+  stonesDestroyed: number,
+  chessPiece: ChessPieceRank,
+  prestigeCount: number
+): number => {
+  const multiplier = (RANK_MULTIPLIERS[chessPiece] || 1) + (prestigeCount * 20);
+  return Math.floor((goldPerClick + attackPower + stonesDestroyed) * multiplier);
 };
 
 // 군대 계급 17단계 강화 시스템 (ENHANCE_RATES에서 name으로 사용)
@@ -2729,6 +2741,7 @@ function App() {
     gold, ruby, currentPiece, currentStone, stonesDestroyed,
     attackPower, critChance, autoClicksPerSec, upgradeCount,
     stonesUntilBoss, bossesDefeated,
+    goldPerClick, prestigeCount, // 리더보드 점수 계산용
     handleClick, tryEnhance, claimMissionReward, missions,
     loadGame, saveGame, autoTick, collectOfflineReward, resetDailyMissions,
     // 오프라인 보상 모달
@@ -2760,6 +2773,33 @@ function App() {
   // 강화 아이템 적용 상태
   const [useProtect, setUseProtect] = useState(false);
   const [useBlessing, setUseBlessing] = useState<0 | 1 | 2>(0); // 0: 없음, 1: 축복주문서, 2: 행운주문서
+
+  // 리더보드 점수 제출 함수
+  const submitLeaderboardScore = useCallback(async () => {
+    const score = calculateLeaderboardScore(
+      goldPerClick,
+      attackPower,
+      stonesDestroyed,
+      currentPiece.rank,
+      prestigeCount
+    );
+    try {
+      const result = await submitGameCenterLeaderBoardScore({ score: score.toString() });
+      if (result && result.statusCode === 'SUCCESS') {
+        console.log('리더보드 점수 제출 성공:', score);
+      }
+    } catch (error) {
+      console.error('리더보드 점수 제출 실패:', error);
+    }
+  }, [goldPerClick, attackPower, stonesDestroyed, currentPiece.rank, prestigeCount]);
+
+  // 리더보드 열기 함수
+  const handleOpenLeaderboard = useCallback(async () => {
+    // 먼저 현재 점수 제출
+    await submitLeaderboardScore();
+    // 리더보드 열기
+    openGameCenterLeaderboard();
+  }, [submitLeaderboardScore]);
 
   // 도구 공격 이펙트 상태
   const [autoAttackFx, setAutoAttackFx] = useState<{
@@ -2815,7 +2855,7 @@ function App() {
     };
   }, [calculateScale]);
 
-  // 앱 백그라운드/포그라운드 전환 시 오디오 제어
+  // 앱 백그라운드/포그라운드 전환 시 오디오 제어 및 점수 제출
   // Web Visibility API로 앱 상태 감지 (토스 앱 내에서도 동작)
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -2823,6 +2863,8 @@ function App() {
         soundManager.unmuteAll(); // 포그라운드: 음소거 해제
       } else {
         soundManager.muteAll();   // 백그라운드: 음소거
+        // 백그라운드 전환 시 리더보드 점수 제출
+        submitLeaderboardScore();
       }
     };
 
@@ -2831,7 +2873,7 @@ function App() {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [submitLeaderboardScore]);
 
   // 구매 완료 콜백
   const handlePurchaseApproved = useCallback((productId: string) => {
@@ -3364,15 +3406,7 @@ function App() {
           </div>
         </div>
         <div className="header-buttons-wrapper">
-          <div className="nav-buttons">
-            <button className="nav-btn more" onPointerUp={() => { soundManager.play('click'); setShowMoreMenu(true); }}>
-              <span>⋯</span>
-            </button>
-            <button className="nav-btn close" onPointerUp={() => { soundManager.play('click'); setShowExitModal(true); }}>
-              <span>✕</span>
-            </button>
-          </div>
-          {/* 2X 부스트 버튼 (광고 수익용) - X 버튼 아래 */}
+          {/* 2X 부스트 버튼 */}
           {(() => {
             const state = useGameStore.getState();
             const now = Date.now();
@@ -3432,6 +3466,15 @@ function App() {
               </button>
             );
           })()}
+          {/* 랭킹 & 설정 버튼 */}
+          <div className="nav-buttons">
+            <button className="nav-btn ranking" onPointerUp={() => { soundManager.play('click'); handleOpenLeaderboard(); }}>
+              <span>👑</span>
+            </button>
+            <button className="nav-btn more" onPointerUp={() => { soundManager.play('click'); setShowMoreMenu(true); }}>
+              <span>⚙️</span>
+            </button>
+          </div>
         </div>
       </div>
 

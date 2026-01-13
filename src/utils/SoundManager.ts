@@ -224,10 +224,31 @@ class SoundManager {
     // 전체 오디오 컨텍스트 음소거 (앱 백그라운드 시 유용)
     muteAll() {
         Howler.mute(true);
+        // BGM 일시정지
+        if (this.bgmPlaying && !this.bgmMuted) {
+            this.bgm.pause();
+        }
     }
 
     unmuteAll() {
+        // iOS: Web Audio Context resume 필요
+        if (Howler.ctx && Howler.ctx.state === 'suspended') {
+            Howler.ctx.resume().then(() => {
+                this.resumeAfterUnmute();
+            }).catch(() => {
+                this.resumeAfterUnmute();
+            });
+        } else {
+            this.resumeAfterUnmute();
+        }
+    }
+
+    private resumeAfterUnmute() {
         Howler.mute(false);
+        // BGM이 재생 중이었다면 다시 재생
+        if (this.bgmPlaying && !this.bgmMuted) {
+            this.bgm.play();
+        }
     }
 
     // HTML5 오디오 잠금해제 (유저 터치 시 호출)
